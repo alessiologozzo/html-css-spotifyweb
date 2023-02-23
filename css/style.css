@@ -25,6 +25,7 @@
     --main_card_per_row: 4;
     --main_card_gap: 1.3rem;
     --main_icon_size: 3.5rem;
+    --footer_play_size: 2.2rem;
 }
 
 body{
@@ -330,13 +331,134 @@ footer{
     position: fixed;
     bottom: 0;
     left: 0;
+    display: flex;
+    align-items: center;
 }
 
+footer > div{
+    width: calc(100% / 3.5);
+}
+
+footer > div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding-left: var(--aside_padding_left);
+}
+
+footer .img-container{
+    width: calc(var(--footer_height) / 1.4);
+}
+
+footer .img-container img{
+    width: 100%;
+    display: block;
+    transition: filter 300ms;
+}
+
+footer .img-container img:hover{
+    filter: blur(1px);
+}
+
+footer > div:first-child a{
+    color: var(--text_color);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+footer > div:first-child a span:hover{
+    color: var(--light_text_color);
+}
+
+footer > div:first-child a span:hover{
+    text-decoration: underline;
+}
+
+footer > div:first-child a strong{
+    color: var(--light_text_color);
+}
+
+footer > div:first-child a strong:hover{
+    color: var(--text_color);
+    text-decoration: none;
+}
+
+footer > div:first-child i:hover{
+    color: var(--light_text_color);
+}
+
+footer > div > .d-flex-column:last-of-type{
+    gap: 0.2rem;
+    padding-left: 2%;
+}
+
+footer > div i {
+    font-size: var(--aside_icon_size);
+}
+
+footer div:nth-child(2){
+    width:calc(100% - (100% / 3.5));
+}
+
+footer div:nth-child(2) .icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding-bottom: 0.4rem;
+}
+
+footer div:nth-child(2) .icon-container a:nth-child(3) i{
+    font-size: var(--footer_play_size);
+}
+
+footer div:nth-child(2) .icon-container a i{
+    transition: transform 300ms;
+}
+
+footer div:nth-child(2) .icon-container a i:hover{
+    transform: scale(1.2);
+}
+
+footer div:nth-child(2) > .range-container{
+    width: 100%;
+    color: var(--light_text_color);
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+footer > div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: var(--aside_padding_left);
+}
+
+footer > div:last-child > div{
+    gap: 2rem;
+}
+
+footer > div:nth-child(2) .icon-container a, footer > div:last-child a{
+    color: var(--light_text_color);
+}
+
+footer > div:nth-child(2) .icon-container a:hover, footer > div:last-child a:hover{
+    color: var(--text_color);
+}
+
+input[type="range"]{
+    width: 70%;
+}
+
+footer .range-container input[type="range"]{
+    width: 75%;
+}
 /* /Footer */
 
 
 
 /* Responsive */
+
 
 @media (width < 500px){
     :root{
@@ -344,7 +466,23 @@ footer{
     }
 }
 
-@media (width <= 650px){
+@media (width < 550px){
+
+    footer > div:first-child > div:last-child{
+        margin-left: -0.8rem;
+    }
+
+    footer > div:nth-child(2) .icon-container{
+        gap: 1.4rem;
+    }
+
+    footer > div:nth-child(2) .range-container input[type="range"]{
+        width:50%;
+    }
+
+}
+
+@media (width <= 685px){
     :root{
         --aside_padding_left: 12px;
         --aside_width: calc(var(--aside_padding_left) * 3);
@@ -381,17 +519,51 @@ footer{
     aside a{
         justify-content: center;
     }
+
+    footer a{
+        font-size: 0.6rem;
+    }
+
+    footer > div:first-child i, footer > div:last-child i{
+        font-size: 0.9rem;
+    }
+
+    footer > div:first-child{
+        gap: 2%;
+    }
+
+    footer > div:last-child > div{
+        gap: 0.2rem;
+    }
 }
 
 @media ( 500px < width <= 850px){
     :root{
         --main_card_per_row: 2;
     }
+
+    footer > div:nth-child(2) .icon-container{
+        gap: 2rem;
+    }
+
+    footer > div:nth-child(2) .range-container input[type="range"]{
+        width:60%;
+    }
+}
+
+@media ( 635px < width < 850px){
+    footer > div:last-child > div{
+        gap: 0.6rem;
+    }
 }
 
 @media ( 850px < width <= 1100px){
     :root{
         --main_card_per_row: 3;
+    }
+
+    footer > div:last-child > div{
+        gap: 1.2rem;
     }
 }
 
